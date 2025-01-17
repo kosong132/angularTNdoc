@@ -1,0 +1,19 @@
+<div class="container mt-4">
+    <h2>File Preview</h2>
+    <p><strong>File Name:</strong> {{ fileName }}</p>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Field</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let key of objectKeys(fieldMappings)">
+          <td>{{ key }}</td>
+          <td>{{ fieldMappings[key] }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
