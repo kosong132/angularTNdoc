@@ -1,8 +1,132 @@
-.app-header {
-  height: 60px;
-  border-bottom: 1px solid #ddd;
+/* General Header Styling */
+#header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 10px 20px;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.app-header-left input {
-  max-width: 300px;
+/* Left Section */
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 50px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.portal-name h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333333;
+}
+
+/* Center Section */
+.header-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.search-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.search-button i {
+  font-size: 1.2rem;  /* Adjust the size of the icon */
+  color: #555;  /* Set color of the icon */
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+/* Right Section */
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.notification-trigger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.notification-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Profile Container */
+.profile-container {
+  position: relative;
+}
+
+.profile-trigger {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.user-profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+/* Dropdown Menu Styling */
+.menu {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  width: 200px;
+  z-index: 1000;
+}
+
+.user-profile-info {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.user-pic-thumb img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+a[role='menuitem'] {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333333;
+}
+
+a[role='menuitem']:hover {
+  background-color: #f1f1f1;
 }

@@ -10,4 +10,11 @@ import { HeaderComponent } from "../header/header.component";
   standalone: true,
   imports: [CommonModule, RouterModule, HeaderComponent],
 })
-export class SidebarComponent {}
+export class SidebarComponent {
+  isSidebarVisible: boolean = true;
+
+  toggleSidebar(): void {
+    this.isSidebarVisible = !this.isSidebarVisible;
+    console.log('Sidebar state:', this.isSidebarVisible);
+  }
+}

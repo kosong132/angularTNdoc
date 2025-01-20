@@ -1,19 +1,93 @@
-<div class="app-header d-flex justify-content-between align-items-center px-3 bg-primary text-white">
-  <div class="app-header-left">
-    <input
-      type="text"
-      class="form-control form-control-sm"
-      placeholder="Search..."
-      style="width: 300px;"
-    />
-  </div>
-  <div class="app-header-right d-flex align-items-center">
-    <button class="btn btn-sm btn-light me-3">Notifications</button>
-    <img
-      src="assets/profile-icon.png"
-      alt="Profile"
-      class="rounded-circle"
-      style="width: 40px; height: 40px;"
-    />
-  </div>
+<div id="header-container" class="header">
+  <!-- Header Left Section -->
+     <!-- Menu Button -->
+     <!-- <header class="header bg-light d-flex align-items-center">
+      <button class="btn btn-outline-primary me-3" (click)="onToggleSidebar()">
+        ☰ Menu
+      </button>
+      
+    </header> -->
+  <section class="header-left">
+    <button class="btn btn-outline-primary me-3" (click)="onToggleSidebar()">
+      ☰ Menu
+    </button>
+    <div class="logo">
+      <img src="/assets/static/logo.png" alt="Portal Logo" class="portal-logo" />
+    </div>
+    <div class="portal-name">
+      <h1>TNDocManager</h1>
+    </div>
+  </section>
+
+  <!-- Header Center Section -->
+  <section class="header-center">
+    <div id="search-header" class="search-container">
+      <form role="search" class="search-form" (submit)="onSearch(searchQuery.value)">
+        <input 
+          #searchQuery
+          type="search" 
+          placeholder="Search" 
+          aria-label="Search for solutions, services, and tickets" 
+          class="search-input"
+        />
+        <button type="submit" class="search-button" aria-label="Search">
+          <!-- Use Font Awesome Search Icon -->
+          <i class="fas fa-search" role="presentation"></i>
+        </button>
+      </form>
+    </div>
+    
+  </section>
+
+  <!-- Header Right Section -->
+  <section class="header-right">
+    <!-- Notification Button -->
+    <button
+      id="btn-notifications"
+      class="notification-trigger"
+      aria-label="Notifications"
+      (click)="handleNotifications()"
+    >
+      <img src="/assets/static/notification-icon.png" alt="Notifications" class="notification-icon" />
+    </button>
+
+    <div id="header-container" class="header">
+      <!-- Profile Icon with Dropdown -->
+      <div class="profile-container">
+        <button
+          id="btn-profile-options"
+          class="profile-trigger"
+          aria-label="Profile menu"
+          (click)="toggleDropdown()"
+        >
+          <img
+            src="/assets/static/default-profile-pic.png"
+            alt="User Profile"
+            class="user-profile-pic"
+          />
+        </button>
+    
+        <!-- Dropdown menu that toggles visibility based on 'dropdownVisible' -->
+        <div class="menu" *ngIf="dropdownVisible" id="user-dropdown">
+          <div class="user-profile-info">
+            <div class="user-pic-thumb">
+              <div class="user-profile-holder medium">
+                <img
+                src="/assets/static/default-profile-pic.png"
+                  alt="User Thumbnail"
+                />
+              </div>
+            </div>
+            <span>Yong Kok Siong</span>
+          </div>
+    
+          <div role="menu">
+            <a href="/support/profile/edit" role="menuitem">My profile</a>
+            <a href="/support/announcements" role="menuitem">Announcements</a>
+            <a href="/logout" role="menuitem">Sign out</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>

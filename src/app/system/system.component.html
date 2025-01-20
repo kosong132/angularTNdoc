@@ -1,0 +1,12 @@
+<div class="d-flex">
+    <div class="sidebar-container" *ngIf="sidebarVisible">
+      <app-sidebar></app-sidebar> <!-- Sidebar Component -->
+    </div>
+    <div class="content flex-grow-1">
+      <app-header (sidebarToggle)="toggleSidebar()"></app-header> <!-- Header Component -->
+      <div class="task-container p-4">
+        <router-outlet></router-outlet> <!-- Router Outlet for tasks -->
+      </div>
+    </div>
+  </div>
+  

@@ -1,20 +1,49 @@
-<div class="sidebar bg-light vh-100">
-  <div class="text-center py-4">
-    <img src="assets/logo.png" alt="Logo" class="img-fluid" style="max-height: 100px;" />
+<div class="d-flex">
+  <!-- Sidebar -->
+   <div class="sidebar" [class.sidebar-closed]="!isSidebarVisible">
+    <div class="text-center py-4">
+      <!-- Logo as Text -->
+      <div class="logo-text display-5 fw-bold">TNDoc</div>
+    </div>
+    <div class="sidebar-content">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link text-dark" routerLink="/system/task1">EDI File Auto Generator</a>
+          <small class="text-muted">
+            (Excel to EDI file, zip, and mail to the provided email)
+          </small>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" routerLink="/system/task2">File Sorting and Zip</a>
+          <small class="text-muted">
+            (Upload files. PKTXXXX .xml and .pdf files will zip together)
+          </small>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" routerLink="/system/task3">File Analyzing</a>
+          <small class="text-muted">
+            (Convert XML data into ID fields, map them, and output to Excel)
+          </small>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" routerLink="/system/task4">Add Remark on PDF File</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" routerLink="/system/task5">File Compare</a>
+          <small class="text-muted">
+            (Upload CUSDEC and CUSRES files. Get results in table format.)
+          </small>
+        </li>
+      </ul>
+    </div>
   </div>
-  <ul class="nav flex-column">
-    <li class="nav-item">
-      <a class="nav-link text-dark" routerLink="/system/task1">Task 1</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link text-dark" routerLink="/system/task2">Task 2</a>
-    </li>
-  </ul>
-</div>
-<div class="content flex-grow-1">
-  <app-header></app-header>
-  <router-outlet></router-outlet>
-</div>
+
+  <!-- Main Content -->
+  <!-- <div class="content flex-grow-1">
+    <app-header></app-header>
+    <router-outlet></router-outlet>
+  </div>
+</div> -->
 
 <!-- <div class="d-flex">
 
