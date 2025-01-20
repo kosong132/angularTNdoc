@@ -22,9 +22,12 @@ export class ForgotPasswordComponent {
   onSubmit() {
     if (this.email) {
       this.authService.forgotPassword(this.email).subscribe({
-        next: (response) => {
-          console.log('Password reset success', response);
-          this.successMessage = 'A password reset link has been sent to your email.';
+        next: (response: string) => {
+          console.log('Password reset success:', response);
+          this.successMessage = response; // Display the plain text message
+          setTimeout(() => {
+            window.location.reload(); // Reload the page after 5 seconds
+          }, 5000);
         },
         error: (err) => {
           console.error('Error during password reset:', err);
@@ -36,6 +39,43 @@ export class ForgotPasswordComponent {
       this.errorMessage = 'Please enter a valid email address.';
     }
   }
+   // onSubmit() {
+  //   if (this.email) {
+  //     this.authService.forgotPassword(this.email).subscribe({
+  //       next: (response) => {
+  //         console.log('Password reset success', response);
+  //         this.successMessage = 'A password reset link has been sent to your email. Please check your inbox.';
+  //         setTimeout(() => {
+  //           window.location.reload(); // Reload the page after 5 seconds
+  //         }, 5000);
+  //       },
+  //       error: (err) => {
+  //         console.error('Error during password reset:', err);
+  //         this.errorMessage = 'There was an issue with the password reset request. Please try again.';
+  //       },
+  //     });
+  //   } else {
+  //     console.log('Please enter a valid email');
+  //     this.errorMessage = 'Please enter a valid email address.';
+  //   }
+  // }
+   // onSubmit() {
+  //   if (this.email) {
+  //     this.authService.forgotPassword(this.email).subscribe({
+  //       next: (response) => {
+  //         console.log('Password reset success', response);
+  //         this.successMessage = 'A password reset link has been sent to your email.';
+  //       },
+  //       error: (err) => {
+  //         console.error('Error during password reset:', err);
+  //         this.errorMessage = 'There was an issue with the password reset request. Please try again.';
+  //       },
+  //     });
+  //   } else {
+  //     console.log('Please enter a valid email');
+  //     this.errorMessage = 'Please enter a valid email address.';
+  //   }
+  // }
   navigateToLogin() {
     this.router.navigate(['/auth/login']);
   }

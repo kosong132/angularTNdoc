@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
+import { tap } from 'rxjs/operators';
 
 
 
@@ -25,15 +26,25 @@ export class AuthService {
       })
     );
   }
-  forgotPassword(email: string): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}/forgot-password`, { email }).pipe(
+  // forgotPassword(email: string): Observable<any> {
+  //   return this.http.post<any>(`${this.baseUrl}/forgot-password`, { email }).pipe(
+  //     tap(() => console.log('Forgot password request successful.')), // Log success
+  //     catchError((error) => {
+  //       console.error('Forgot password error:', error);
+  //       return throwError(() => new Error('Error during password reset. Please try again.'));
+  //     })
+  //   );
+  // }
+  forgotPassword(email: string): Observable<string> {
+    return this.http.post(`${this.baseUrl}/forgot-password`, { email }, { responseType: 'text' }).pipe(
+      tap((response) => console.log('Forgot password response:', response)),
       catchError((error) => {
         console.error('Forgot password error:', error);
         return throwError(() => new Error('Error during password reset. Please try again.'));
       })
     );
   }
-
+  
   storeToken(token: string): void {
     localStorage.setItem('token', token);
   }
@@ -56,9 +67,13 @@ export class AuthService {
     localStorage.removeItem('token');
     this.router.navigate(['/auth/login']);
   }
+  // resetPassword(token: string, newPassword: string) {
+  //   const url = `http://localhost:8080/api/auth/reset-password/${token}`;
+  //   return this.http.post(url, { "newPassword": newPassword }, { headers: { 'content-type': 'application/json' } });
+  // }
   resetPassword(token: string, newPassword: string) {
     const url = `http://localhost:8080/api/auth/reset-password/${token}`;
-    return this.http.post(url, { "newPassword": newPassword }, { headers: { 'content-type': 'application/json' } });
+    return this.http.post(url, { newPassword });
   }
   
 }

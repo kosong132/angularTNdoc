@@ -22,28 +22,51 @@ export class ResetPasswordComponent {
     this.token = this.route.snapshot.paramMap.get('token') || '';
     console.log('Token:', this.token);
   }
-
   onSubmit() {
     if (this.newPassword !== this.confirmPassword) {
       this.errorMessage = 'Passwords do not match!';
       return;
     }
-  
-    console.log('Token:', this.token); // Log token
-    console.log('New Password:', this.newPassword); // Log new password
-  
+  //   console.log('Password reset success:', response);
+  //   this.successMessage = response; // Display the plain text message
+  //   setTimeout(() => {
+  //     window.location.reload(); // Reload the page after 5 seconds
+  //   }, 5000);
+  // },
     this.authService.resetPassword(this.token, this.newPassword).subscribe({
       next: (response) => {
-        this.successMessage = response['message']|| 'Password has been reset successfully!';
-        this.errorMessage = ''; // Clear any existing error messages
-        console.log('Password reset success:', response);
-        this.router.navigate(['/auth/login']);
+        this.successMessage = 'Password has been reset successfully!';
+        setTimeout(() => {
+          this.router.navigate(['/auth/login']);// Reload the page after 5 seconds
+        }, 5000);
+        
       },
       error: (err) => {
-        this.errorMessage = err.error?.message || 'Failed to reset password. Please try again.';
-        console.error('Password reset error:', err);
+        this.errorMessage = 'Failed to reset password. Please try again.';
+        console.error(err);
       },
     });
+  // onSubmit() {
+  //   if (this.newPassword !== this.confirmPassword) {
+  //     this.errorMessage = 'Passwords do not match!';
+  //     return;
+  //   }
+  
+  //   console.log('Token:', this.token); // Log token
+  //   console.log('New Password:', this.newPassword); // Log new password
+  
+  //   this.authService.resetPassword(this.token, this.newPassword).subscribe({
+  //     next: (response) => {
+  //       this.successMessage = response['message']|| 'Password has been reset successfully!';
+  //       this.errorMessage = ''; // Clear any existing error messages
+  //       console.log('Password reset success:', response);
+  //       this.router.navigate(['/auth/login']);
+  //     },
+  //     error: (err) => {
+  //       this.errorMessage = err.error?.message || 'Failed to reset password. Please try again.';
+  //       console.error('Password reset error:', err);
+  //     },
+  //   });
     
   }
   

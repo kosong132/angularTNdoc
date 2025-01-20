@@ -1,0 +1,8 @@
+.app-header {
+  height: 60px;
+  border-bottom: 1px solid #ddd;
+}
+
+.app-header-left input {
+  max-width: 300px;
+}
