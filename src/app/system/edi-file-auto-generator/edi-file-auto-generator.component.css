@@ -1,0 +1,49 @@
+.container {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    border: 2px solid #333;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  h3 {
+    text-align: center;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  .button-container {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  button {
+    font-size: 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  a.btn-link {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  
+  a.btn-link:hover {
+    text-decoration: underline;
+  }
+  

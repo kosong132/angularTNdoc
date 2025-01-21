@@ -1,35 +1,40 @@
 <div class="d-flex">
   <!-- Sidebar -->
-   <div class="sidebar" [class.sidebar-closed]="!isSidebarVisible">
+  <div class="sidebar bg-light vh-100" [class.sidebar-closed]="!isSidebarVisible">
     <div class="text-center py-4">
       <!-- Logo as Text -->
-      <div class="logo-text display-5 fw-bold">TNDoc</div>
+      <div class="logo-text display-5 fw-bold">Menu</div>
     </div>
-    <div class="sidebar-content">
+
+    <div class="sidebar-content px-3">
       <ul class="nav flex-column">
-        <li class="nav-item">
-          <a class="nav-link text-dark" routerLink="/system/task1">EDI File Auto Generator</a>
+        <li class="nav-item my-3">
+          <a class="nav-link text-dark fw-bold" routerLink="/system/edi-generator">EDI File Auto Generator</a>
           <small class="text-muted">
             (Excel to EDI file, zip, and mail to the provided email)
           </small>
         </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark" routerLink="/system/task2">File Sorting and Zip</a>
+
+        <li class="nav-item my-3">
+          <a class="nav-link text-dark fw-bold" routerLink="/system/file-sorting">File Sorting and Zip</a>
           <small class="text-muted">
             (Upload files. PKTXXXX .xml and .pdf files will zip together)
           </small>
         </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark" routerLink="/system/task3">File Analyzing</a>
+
+        <li class="nav-item my-3">
+          <a class="nav-link text-dark fw-bold" routerLink="/system/task3">File Analyzing</a>
           <small class="text-muted">
             (Convert XML data into ID fields, map them, and output to Excel)
           </small>
         </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark" routerLink="/system/task4">Add Remark on PDF File</a>
+
+        <li class="nav-item my-3">
+          <a class="nav-link text-dark fw-bold" routerLink="/system/task4">Add Remark on PDF File</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark" routerLink="/system/task5">File Compare</a>
+
+        <li class="nav-item my-3">
+          <a class="nav-link text-dark fw-bold" routerLink="/system/task5">File Compare</a>
           <small class="text-muted">
             (Upload CUSDEC and CUSRES files. Get results in table format.)
           </small>
@@ -37,6 +42,7 @@
       </ul>
     </div>
   </div>
+
 
   <!-- Main Content -->
   <!-- <div class="content flex-grow-1">

@@ -3,6 +3,7 @@ import { SidebarComponent } from "./shared/sidebar/sidebar.component";
 import { HeaderComponent } from "./shared/header/header.component";
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+
 @Component({
   selector: 'app-system',
   templateUrl: './system.component.html',

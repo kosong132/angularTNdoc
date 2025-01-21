@@ -1,0 +1,30 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card shadow-sm">
+          <div class="card-header bg-primary text-white">
+            <h4 class="card-title mb-0">Upload Files</h4>
+          </div>
+          <div class="card-body">
+            <form (submit)="onSubmit($event)">
+              <div class="mb-3">
+                <label for="fileInput" class="form-label">Select Files to Upload:</label>
+                <input
+                  class="form-control"
+                  type="file"
+                  id="fileInput"
+                  (change)="onFileSelect($event)"
+                  multiple
+                  required
+                />
+              </div>
+              <button type="submit" class="btn btn-success w-100" [disabled]="!files.length">
+                Upload and Zip
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

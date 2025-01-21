@@ -27,7 +27,7 @@ export class LoginComponent {
         next: (response) => {
           console.log('Login successful', response);
           this.errorMessage = null; // Clear any existing error message
-          this.router.navigate(['/system/task1']); // Redirect to the system page
+          this.router.navigate(['/system/edi-generator']); // Redirect to the system page
         },
         error: (err) => {
           console.error('Login failed:', err);
