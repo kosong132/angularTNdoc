@@ -67,6 +67,9 @@ export class AuthService {
     localStorage.removeItem('token');
     this.router.navigate(['/auth/login']);
   }
+  getUserProfile(): Observable<any> {
+    return this.http.get('/api/user/profile'); // Replace with your actual endpoint
+  }
   // resetPassword(token: string, newPassword: string) {
   //   const url = `http://localhost:8080/api/auth/reset-password/${token}`;
   //   return this.http.post(url, { "newPassword": newPassword }, { headers: { 'content-type': 'application/json' } });

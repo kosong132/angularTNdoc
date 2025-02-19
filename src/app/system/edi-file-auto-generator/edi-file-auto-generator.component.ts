@@ -1,5 +1,7 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { EdiFileAutoGeneratorService } from './edi-file-auto-generator.service';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -7,42 +9,51 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './edi-file-auto-generator.component.html',
   styleUrls: ['./edi-file-auto-generator.component.css'],
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports:[CommonModule,FormsModule]
 })
-
 export class EdiFileAutoGeneratorComponent {
   selectedFile: File | null = null;
+
+  constructor(
+    private ediService: EdiFileAutoGeneratorService,
+    private router: Router
+  ) {}
 
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
       this.selectedFile = input.files[0];
+      console.log('File selected:', this.selectedFile.name);
     } else {
       this.selectedFile = null;
+      console.warn('No file selected.');
     }
   }
 
-  onSubmit(): void {
+  onSubmit(e: any): void {
+    e.preventDefault();
     if (!this.selectedFile) {
       alert('Please select a file to upload.');
       return;
     }
 
-    const formData = new FormData();
-    formData.append('file', this.selectedFile);
-
-    fetch('/upload', {
-      method: 'POST',
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log('File uploaded successfully:', data);
-        alert('File uploaded and processed successfully.');
-      })
-      .catch((error) => {
+    console.log('Submitting file:', this.selectedFile.name);
+    this.ediService.uploadFile(this.selectedFile).subscribe({
+      next: (response) => {
+        console.log(response);
+        if (response && Array.isArray(response)) {
+          console.log('File uploaded successfully. Redirecting...', response);
+          // Navigate with response data
+          this.router.navigate(['/system/edi-file-list'], { state: { ediDataList: response } });
+        } else {
+          console.error('Unexpected response:', response);
+          alert('Unexpected response from server. Please contact support.');
+        }
+      },
+      error: (error) => {
         console.error('Error uploading file:', error);
-        alert('Failed to upload the file.');
-      });
+        alert('Failed to upload the file. Please try again.');
+      },
+    });
   }
 }

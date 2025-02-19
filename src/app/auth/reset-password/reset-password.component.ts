@@ -17,12 +17,20 @@ export class ResetPasswordComponent {
   token: string = '';
   errorMessage: string = '';
   successMessage: string = '';
+  newpasswordError: string | null = null;
+  confirmedpasswordError: string | null = null;
 
   constructor(private route: ActivatedRoute, private authService: AuthService, private router: Router) {
     this.token = this.route.snapshot.paramMap.get('token') || '';
     console.log('Token:', this.token);
   }
   onSubmit() {
+    this.newpasswordError = this.newPassword ? null : 'New Password is required';
+    this.confirmedpasswordError = this.confirmPassword ? null : 'Confirmed Password is required';
+    
+    if (this.newpasswordError || this.confirmedpasswordError) {
+      return;
+    }
     if (this.newPassword !== this.confirmPassword) {
       this.errorMessage = 'Passwords do not match!';
       return;
@@ -42,32 +50,15 @@ export class ResetPasswordComponent {
         
       },
       error: (err) => {
-        this.errorMessage = 'Failed to reset password. Please try again.';
+        this.errorMessage = 'Failed to reset password. Ivalid token';
         console.error(err);
       },
     });
-  // onSubmit() {
-  //   if (this.newPassword !== this.confirmPassword) {
-  //     this.errorMessage = 'Passwords do not match!';
-  //     return;
-  //   }
-  
-  //   console.log('Token:', this.token); // Log token
-  //   console.log('New Password:', this.newPassword); // Log new password
-  
-  //   this.authService.resetPassword(this.token, this.newPassword).subscribe({
-  //     next: (response) => {
-  //       this.successMessage = response['message']|| 'Password has been reset successfully!';
-  //       this.errorMessage = ''; // Clear any existing error messages
-  //       console.log('Password reset success:', response);
-  //       this.router.navigate(['/auth/login']);
-  //     },
-  //     error: (err) => {
-  //       this.errorMessage = err.error?.message || 'Failed to reset password. Please try again.';
-  //       console.error('Password reset error:', err);
-  //     },
-  //   });
     
+
+  }
+  navigateToLogin() {
+    this.router.navigate(['/auth/login']);
   }
   
 }

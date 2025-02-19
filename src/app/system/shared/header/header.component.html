@@ -78,13 +78,13 @@
                 />
               </div>
             </div>
-            <span>Yong Kok Siong</span>
+            <span>{{ username }}</span>
           </div>
     
           <div role="menu">
-            <a href="/support/profile/edit" role="menuitem">My profile</a>
-            <a href="/support/announcements" role="menuitem">Announcements</a>
-            <a href="/logout" role="menuitem">Sign out</a>
+            <a href="#" role="menuitem" (click)="showAlert('profile')">My profile</a> <!-- Show alert when clicked -->
+            <a href="#" role="menuitem" (click)="showAlert('announcements')">Announcements</a> <!-- Show alert when clicked -->
+            <a href="#" role="menuitem" (click)="logout()">Sign out</a> <!-- Call logout when clicked -->
           </div>
         </div>
       </div>

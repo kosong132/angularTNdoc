@@ -1,12 +1,12 @@
-<!-- <div class="container my-5">
+<div class="container my-5">
     <h1 class="text-center mb-4">Preview of Tag Data</h1>
   
     <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
-    <div *ngIf="tagDataList.length === 0 && !error" class="alert alert-warning">
+    <div *ngIf="mergedData.length === 0 && !error" class="alert alert-warning">
       No data available to display.
     </div>
   
-    <table *ngIf="tagDataList.length > 0" class="table table-bordered table-striped">
+    <table *ngIf="mergedData.length > 0" class="table table-bordered table-striped">
       <thead class="table-dark">
         <tr>
           <th>Tag</th>
@@ -15,12 +15,15 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let data of tagDataList">
+        <tr *ngFor="let data of mergedData">
           <td>{{ data.tag }}</td>
           <td>{{ data.cusdecData }}</td>
           <td>{{ data.cusresData }}</td>
         </tr>
       </tbody>
     </table>
+    <ng-template #noData>
+        <p class="text-center text-muted">No data available. Please go back and upload files.</p>
+      </ng-template>
   </div>
-   -->
+  

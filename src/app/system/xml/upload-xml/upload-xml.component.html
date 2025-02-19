@@ -1,0 +1,11 @@
+<div class="container upload-container">
+    <h1 class="text-center mb-4">Upload XML File</h1>
+    <div class="border p-4 rounded bg-light">
+      <div class="form-group">
+        <label for="file">Choose XML File</label>
+        <input type="file" id="file" (change)="onFileChange($event)" class="form-control-file" accept=".xml" />
+      </div>
+      <button class="btn btn-primary btn-block" (click)="uploadFile()">Upload and Show Data</button>
+    </div>
+  </div>
+  

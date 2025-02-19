@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EdiListComponent } from './edi-file-list.component';
+import { ResultXmlComponent } from './result-xml.component';
 
-describe('EdiFileListComponent', () => {
-  let component: EdiListComponent;
-  let fixture: ComponentFixture<EdiListComponent>;
+describe('ResultXmlComponent', () => {
+  let component: ResultXmlComponent;
+  let fixture: ComponentFixture<ResultXmlComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [EdiListComponent]
+      imports: [ResultXmlComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(EdiListComponent);
+    fixture = TestBed.createComponent(ResultXmlComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

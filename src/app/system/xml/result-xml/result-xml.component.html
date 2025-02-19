@@ -1,0 +1,23 @@
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Export XML Data to Excel</h1>
+    <div class="text-center mb-4">
+      <button class="btn btn-primary" (click)="exportToExcel()">Export to Excel</button>
+    </div>
+    <table class="table table-bordered table-striped">
+      <thead class="thead-light">
+        <tr>
+          <th>XML Field ID</th>
+          <th>XML Field Mapping</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let field of xmlFields">
+          <td>{{ field.id }}</td>
+          <td>{{ field.mapping }}</td>
+          <td>{{ field.value }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "allowedCommonJsDependencies": ["jszip"],
             "outputPath": "dist/frontend-angular",
             "index": "src/index.html",
             "browser": "src/main.ts",
