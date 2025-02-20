@@ -75,7 +75,7 @@ export class AuthService {
   //   return this.http.post(url, { "newPassword": newPassword }, { headers: { 'content-type': 'application/json' } });
   // }
   resetPassword(token: string, newPassword: string) {
-    const url = `http://localhost:8080/api/auth/reset-password/${token}`;
+    const url = `https://tndocmanager-1.onrender.com/api/auth/reset-password/${token}`;
     return this.http.post(url, { newPassword });
   }
   

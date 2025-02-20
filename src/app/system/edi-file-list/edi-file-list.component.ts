@@ -37,7 +37,7 @@ export class EdiListComponent implements AfterViewInit {
   
     try {
       const response = await fetch(
-        `http://tndocmanager-1.onrender.com/api/edi-generator/validate-email?email=${this.recipientEmail}`
+        `https://tndocmanager-1.onrender.com/api/edi-generator/validate-email?email=${this.recipientEmail}`
       );
       const data = await response.json();
   
@@ -113,7 +113,7 @@ export class EdiListComponent implements AfterViewInit {
   
       console.log('Sending email with ZIP attachment...');
       // const response = await fetch('http://localhost:8080/api/edi-generator/send-email', {
-         const response = await fetch('http://tndocmanager-1.onrender.com/api/edi-generator/send-email', { 
+         const response = await fetch('https://tndocmanager-1.onrender.com/api/edi-generator/send-email', { 
         method: 'POST',
         body: formData,
       });

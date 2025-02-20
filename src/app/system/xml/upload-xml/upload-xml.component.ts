@@ -32,7 +32,7 @@ export class UploadXmlComponent {
   console.log('Uploading file:', this.file);
   console.log('FormData contents:', formData.get('file'));
 
-  this.http.post('http://tndocmanager-1.onrender.com/api/xml/upload', formData)
+  this.http.post('https://tndocmanager-1.onrender.com/api/xml/upload', formData)
     .subscribe({
       next: (response: any) => {
         console.log('File uploaded successfully:', response);

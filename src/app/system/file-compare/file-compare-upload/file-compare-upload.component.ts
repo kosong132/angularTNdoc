@@ -30,7 +30,7 @@ export class FilecompareComponent {
     const formData = new FormData();
     formData.append('cusdecFile', cusdecFile);
     formData.append('cusresFile', cusresFile);
-    this.http.post('http://tndocmanager-1.onrender.com/api/files/preview', formData).subscribe({
+    this.http.post('https://tndocmanager-1.onrender.com/api/files/preview', formData).subscribe({
     // this.http.post('http://localhost:8080/api/files/preview', formData).subscribe({
       next: (response:any) => {
         console.log('Files uploaded successfully. Redirecting...');

@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class FileSortingService {
   // private apiUrl = 'http://localhost:8080/upload/files'; // Replace with your backend URL
-  private apiUrl = 'http://tndocmanager-1.onrender.com/upload/files'; 
+  private uploadUrl = 'https://tndocmanager-1.onrender.com/upload/files'; 
 
   constructor(private http: HttpClient) {}
 
@@ -18,6 +18,6 @@ export class FileSortingService {
       formData.append('files', file, file.name);
     });
 
-    return this.http.post(this.apiUrl, formData, { responseType: 'blob' });
+    return this.http.post(this.uploadUrl, formData, { responseType: 'blob' });
   }
 }

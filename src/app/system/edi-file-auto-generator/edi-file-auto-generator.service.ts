@@ -8,7 +8,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class EdiFileAutoGeneratorService {
   // private apiUrl = 'http://localhost:8080/api/edi-generator/upload'; // Backend endpoint
-  private apiUrl = 'http://tndocmanager-1.onrender.com/api/edi-generator/upload';
+  private apiUrl = 'https://tndocmanager-1.onrender.com/api/edi-generator/upload';
   constructor(private http: HttpClient) {}
 
   uploadFile(file: File): Observable<any> {
