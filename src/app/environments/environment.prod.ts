@@ -1,5 +1,4 @@
 export const environment = {
-    production: true,
-    apiUrl: 'https://api.yourproductiondomain.com/api'
-  };
-  
+  production: true,
+  apiUrl: 'https://tndocmanager-1.onrender.com/'
+};

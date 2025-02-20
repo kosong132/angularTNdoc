@@ -1,4 +1,8 @@
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:8080/api'
+  apiUrl: 'https://tndocmanager-1.onrender.com/'
 };
+// export const environment = {
+//   production: true,
+//   apiUrl: 'https://tndocmanager.onrender.com'
+// };
