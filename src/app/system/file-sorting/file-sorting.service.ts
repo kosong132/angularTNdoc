@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class FileSortingService {
-  private apiUrl = 'http://localhost:8080/upload/files'; // Replace with your backend URL
+  // private apiUrl = 'http://localhost:8080/upload/files'; // Replace with your backend URL
+  private apiUrl = 'http://tndocmanager-1.onrender.com/upload/files'; 
 
   constructor(private http: HttpClient) {}
 

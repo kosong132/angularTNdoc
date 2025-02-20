@@ -22,6 +22,6 @@ export class ResultXmlComponent implements OnInit {
   }
 
   exportToExcel() {
-    window.open('http://localhost:8080/api/xml/export', '_blank');
+    window.open('http://tndocmanager-1.onrender.com/api/xml/export', '_blank');
   }
 }

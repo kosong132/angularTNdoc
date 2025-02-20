@@ -12,7 +12,7 @@ import { tap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class AuthService {
-  private baseUrl = 'http://localhost:8080/api/auth';
+  private baseUrl = 'https://tndocmanager-1.onrender.com/api/auth';
 
   constructor(private http: HttpClient, private router: Router) {}
 
